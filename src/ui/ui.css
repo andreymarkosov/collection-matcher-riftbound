@@ -1,0 +1,134 @@
+:root {
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --border: #dde1e7;
+  --text: #1b2230;
+  --muted: #5f6b7c;
+  --accent: #b8862f;
+  --accent-text: #ffffff;
+  --ok: #1f8a4c;
+  --error: #b83a32;
+  --info: #2f6fb3;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #11161f;
+    --surface: #1a212d;
+    --border: #2c3544;
+    --text: #e6e9ee;
+    --muted: #9aa5b5;
+    --accent: #d6ac54;
+    --accent-text: #1b1406;
+    --ok: #3cb371;
+    --error: #e0665d;
+    --info: #6aa7e6;
+    color-scheme: dark;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 14px/1.45 system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+a { color: var(--info); }
+h1 { font-size: 20px; margin: 0; }
+h2 { font-size: 16px; margin: 0 0 4px; }
+h3 { font-size: 14px; margin: 16px 0 4px; }
+code { font: 12px ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+.page { max-width: 860px; margin: 0 auto; padding: 24px 16px 48px; }
+.page-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+.page-header p { margin: 2px 0 0; }
+
+.section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  margin: 16px 0;
+}
+
+.hint { color: var(--muted); margin: 0 0 12px; }
+.small { font-size: 12px; }
+.error { color: var(--error); }
+
+.stats { display: flex; gap: 12px; margin: 8px 0; }
+.stat {
+  flex: 1;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+}
+.stat strong { font-size: 22px; }
+.stat span { color: var(--muted); font-size: 12px; }
+
+.row { display: flex; align-items: center; gap: 8px; margin: 8px 0; flex-wrap: wrap; }
+.grow { flex: 1; min-width: 0; }
+
+button, .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+}
+button:hover, .button:hover { border-color: var(--accent); }
+button:disabled { opacity: 0.5; cursor: default; }
+button.primary, .button.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-text); font-weight: 600; }
+button.danger:hover { border-color: var(--error); color: var(--error); }
+button.small, .button.small { padding: 3px 8px; font-size: 12px; }
+button.wide { width: 100%; margin-top: 12px; }
+
+input[type='url'], input:not([type]), select, textarea, .inline-input {
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+}
+textarea { width: 100%; font: 12px ui-monospace, Menlo, monospace; margin: 8px 0; }
+.inline-input { width: 100%; padding: 3px 6px; background: transparent; border-color: transparent; }
+.inline-input:hover, .inline-input:focus { border-color: var(--border); background: var(--bg); }
+
+.toggle { display: flex; align-items: center; gap: 8px; margin: 6px 0; cursor: pointer; }
+
+.table { width: 100%; border-collapse: collapse; margin-bottom: 8px; }
+.table th { text-align: left; font-size: 12px; color: var(--muted); font-weight: 500; padding: 4px 6px; }
+.table td { border-top: 1px solid var(--border); padding: 6px; vertical-align: middle; }
+.table .num { text-align: right; font-variant-numeric: tabular-nums; }
+.table .actions { text-align: right; white-space: nowrap; }
+.table .actions > * + * { margin-left: 4px; }
+
+.details { margin-top: 8px; }
+.details summary { cursor: pointer; color: var(--muted); }
+.unmatched { max-height: 240px; overflow: auto; font-size: 12px; padding-left: 18px; }
+
+.notice { padding: 8px 12px; border-radius: 8px; border: 1px solid; margin: 8px 0; white-space: pre-line; }
+.notice.ok { color: var(--ok); border-color: var(--ok); }
+.notice.error { color: var(--error); border-color: var(--error); }
+.notice.info { color: var(--info); border-color: var(--info); }
+
+.footer { margin-top: 24px; font-size: 12px; }
+
+.popup-body { width: 320px; }
+.popup { padding: 12px; }
+.popup .page-header { margin-bottom: 8px; }
+.popup h1 { font-size: 16px; }
