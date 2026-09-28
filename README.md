@@ -1,7 +1,7 @@
 # Collection Matcher for Riftbound
 
 A Chrome extension (Manifest V3) that shows **how many copies of each Riftbound card you own** next to card names on
-deck sites. It works like [MTG Collection Lens](https://fccmtgdev.github.io/collectionlens/), but for Riftbound.
+deck sites.
 
 - **Deck pages** show `owned/needed`: green when you own enough copies, amber when you own some, red when you own none.
 - **Other pages** (galleries, search) show `×owned`.
