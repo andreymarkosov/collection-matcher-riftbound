@@ -91,6 +91,8 @@ describe('Piltover Archive adapter', () => {
       ['Seal of Discord', 1],
       ['Blazing Scorcher', undefined],
     ]);
+    // Outside the deck list (e.g. the card library) every printing gets its own badge.
+    expect(hits[4]?.group).toBeUndefined();
     // Same grid → same group, so the annotator shows one badge for the three Seal of Discord tiles.
     const groups = hits.slice(1, 4).map((h) => h.group);
     expect(groups[0]).toBeInstanceOf(Element);

@@ -34,7 +34,8 @@ export const piltoverAdapter: SiteAdapter = {
         name: img.alt || null,
         // Gallery view renders one tile per copy (runes show "×N" instead).
         deckQty: inDeckList ? (parseQty(findQtyElement(tile)?.textContent) ?? 1) : undefined,
-        group: nameEl ? undefined : (tile.parentElement ?? undefined),
+        // Only deck galleries repeat a tile per copy; in the card library each tile is a different printing.
+        group: nameEl || !inDeckList ? undefined : (tile.parentElement ?? undefined),
       };
     });
   },
